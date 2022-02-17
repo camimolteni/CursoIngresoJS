@@ -1,5 +1,5 @@
 /*Camila Molteni DIV I
-TP 4 EJERCICIO A
+TP 4 CON SWITCH + IF
 4.	Para el departamento de iluminación:
 Tomando en cuenta que todas las lámparas están en oferta al mismo precio de $35 pesos final.
 A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
@@ -10,7 +10,106 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
+
+
 function CalcularPrecio () 
+
+{
+    var precio=35;
+    var cantidad=0;
+    var marca;
+    var descuento;
+    var aumento;
+    var mensaje;
+    var precioBase;
+    var precioFinal;
+
+    cantidad=document.getElementById("txtIdCantidad").value;
+    marca=document.getElementById("Marca").value;
+
+        cantidad = parseInt(cantidad);
+
+    precioBase=cantidad*precio;
+
+    /* Cambiar switch de cantidad por if */
+    if(cantidad>0 && cantidad <3)
+    {              
+        descuento = 0;
+    }
+    else
+    {
+        if (cantidad == 3)
+        {
+           switch(marca)
+            {
+                case "ArgentinaLuz":
+                    descuento=15;
+                    break;
+                
+                case "FelipeLamparas":
+                    descuento=10;
+                    break;
+               
+                default:
+                    descuento=5; 
+        }
+    }
+        else
+        {
+            if (cantidad == 4)
+            {
+                switch(marca)
+                {
+                case "ArgentinaLuz":
+                case "FelipeLamparas":
+                    descuento=25;
+                    break;
+                
+                default:
+                    descuento=20;
+                }
+            }
+        else
+        {
+            if (cantidad == 5)
+            {
+                switch(marca)
+                {
+                case "ArgentinaLuz":
+                    descuento=40;
+                    break;
+                
+                default:
+                    descuento=30;
+            }
+        }
+        else
+            {
+            descuento = 50;
+            }
+        }
+    }
+}
+        precioFinal=precioBase-precioBase*descuento/100;
+
+    
+    if(precioFinal>120)
+    {
+       aumento=precioFinal*10/100;
+       
+       mensaje="Usted pago "+aumento+ " de IIBB.";
+       precioFinal=precioFinal+aumento;
+       alert(mensaje);
+       
+    }
+    
+    document.getElementById("txtIdprecioDescuento").value=precioFinal;
+    
+}
+
+
+
+/* TP CON IF
 {
 
 	var descuento = 0;
@@ -88,7 +187,7 @@ function CalcularPrecio ()
 
 	document.getElementById("txtIdprecioDescuento").value = precioFinal.toFixed(2);
 
-}
+}*/
 //txtIdCantidad
 //txtIdprecioDescuento
 //Marca
