@@ -26,8 +26,7 @@ function mostrar()
         case 11:
             mensaje = "Es de mañana.";
             break;
-    switch(horaDelDia)
-    {
+    
     	case 12:
     	case 13:
     	case 14:
@@ -38,8 +37,7 @@ function mostrar()
     	case 19:
     		mensaje = "Es de tarde.";
     		break;
-    switch(horaDelDia)
-    {
+   
     	case 20:
     	case 21:
     	case 22:
@@ -56,8 +54,8 @@ function mostrar()
     		break;
     	default:
     		mensaje = "La hora no existe.";
-    }
-    }
+    
+    
 }
 
 	alert(mensaje);
