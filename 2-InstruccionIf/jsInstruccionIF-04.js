@@ -3,7 +3,37 @@ INSTRUCCION IF 04
 Al ingresar una edad debemos informar si la persona es adolescente, edad entre 13 y 17 años (inclusive) .*/
 function mostrar()
 {
-    var edad;
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /* var edad;
 
 	edad = txtIdEdad.value;
 	edad = parseInt(edad);
@@ -12,7 +42,7 @@ function mostrar()
 
 	{
 		alert("Usted es un adolescente.")
-	}
+	}*/
 
 
 }//FIN DE LA FUNCIÓN

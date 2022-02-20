@@ -9,9 +9,11 @@ var nombre;
 var edad;
 
 nombre = txtIdNombre.value;	
-edad = txtIdEdad.value;
+edad = txtIdEdad.value; 
 
-alert("Usted se llama" + " " + nombre + " " + "y tiene" + " "  + edad + " " + "años");
+alert("Usted se llama " + nombre + " y tiene " + edad + " años")
+
+//alert("Usted se llama" + " " + nombre + " " + "y tiene" + " "  + edad + " " + "años"); Ambas formas esta bien
 }
 
 //txtIdNombre

@@ -3,7 +3,38 @@ INSTRUCCIO IF 01
 Al ingresar una edad que sea igual a 15, mostrar el mensaje "niña bonita".*/
 function mostrar()
 {
-	var edad;
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*var edad;
 
 	edad = txtIdEdad.value;
 	edad = parseInt(edad);
@@ -16,7 +47,7 @@ function mostrar()
 
 	}
 
-	alert("Estoy fuera del if. Me ejecuto igual");
+	alert("Estoy fuera del if. Me ejecuto igual");*/
 
 
 }//FIN DE LA FUNCIÓN

@@ -3,7 +3,38 @@ INSTRUCCION IF 02
 Al ingresar una edad debemos informar solo si la persona es mayor de edad*/
 function mostrar()
 {
-	var edad;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*var edad;
 
 	edad = txtIdEdad.value;
 	edad = parseInt(edad);
@@ -16,7 +47,7 @@ function mostrar()
 
     }
 
-    alert("Estoy afuera del if. Me ejecuto igual.")
+    alert("Estoy afuera del if. Me ejecuto igual.")*/
 	
 
 }//FIN DE LA FUNCIÓN
