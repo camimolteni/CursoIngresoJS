@@ -2,6 +2,50 @@
 Al presionar el botón pedir  números  hasta que el USUARIO QUIERA 
 e informar la suma acumulada y el promedio.
 */
+
+function mostrar()
+{
+	var numeroIngresado;
+	var respuesta;
+	var suma;
+	var promedio;
+	var contador;
+
+	respuesta = "si"; // i=0 true
+	suma = 0;
+	contador = 0;
+
+
+	while(respuesta=="si") // i<5 Si pongo el confirm pongo (respuesta==true) Este while
+		//controla el ciclo (El = asigna, y el == compara)
+	{
+		numeroIngresado = prompt("Ingrese un numero");
+		numeroIngresado = parseInt(numeroIngresado); //solo parseo variables que ingrese el usuario (a traves de prompt o id) y tengan que ser numeros (nombres no), el resto no es necesario
+		while(isNaN(numeroIngresado) || numeroIngresado >100 || numeroIngresado <-100) //en el caso que ponga que no quiero que sea menor a -100 y mayor a 100, abro este while
+			//ya que este while solo analiza el primero que lee
+			//el is Nan se usa cuando el usuario se le pide un num e ingresa otra cosa,
+			//
+		{
+			numeroIngresado = prompt("Reingrese un numero");
+			numeroIngresado = parseInt(numeroIngresado); //cada vez q leo la var y voy a darle un vcalor, la parseo, antes no
+		}
+		suma = suma + numeroIngresado; // suma += numeroIngresado; (ambas sirven)
+
+		contador++;
+		respuesta = prompt("Desea ingresar otro numero?"); //i++
+		//respuesta = confirm("Desea ingresar otro numero?"); Se puede usar el "confirm", es decir q el usario no tenga q poner "si", me ahorro validar ese ingreso
+	}
+
+	promedio = suma / contador;
+
+	txtIdSuma.value = suma;
+	txtIdPromedio.value = promedio;
+
+}//fin de la funcion
+
+
+
+
 /*  el ingreso por prompt de
   1-alturas en centimetros  (validar entre 0 y 250) ,
   2-la edad (validar)
@@ -11,7 +55,7 @@ e informar la suma acumulada y el promedio.
   6-nombre
   de 5 estudiantes de la UTN, */
 
-function mostrar()
+/*function mostrar()
 {
 	var altura;
 	var edad;
@@ -21,7 +65,7 @@ function mostrar()
 	var nombre;
 	var contador;
 	/*1ERA PARTE*/
-	var promedioAltura; //a
+	/*var promedioAltura; //a
 	var contadorAltura;
 	var acumuladorAltura;
 
@@ -125,22 +169,6 @@ function mostrar()
 	document.write("Cantidad de alumnos aprobados " + contadorAprobados + "<br>");
 	document.write("Cantidad de mujeres que miden mas de 190 centímetros " + contadorAlturaMujer + "<br>");
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

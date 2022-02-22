@@ -47,7 +47,7 @@ function mostrar()
 
 	promedio = acumulador / contadorCantidadNumeros;
 
-	contadorCantidadNumeros = contadorCantidadNumeros + 1
+	contadorCantidadNumeros = contadorCantidadNumeros + 1 //no da el ejercicio
 
 
 
