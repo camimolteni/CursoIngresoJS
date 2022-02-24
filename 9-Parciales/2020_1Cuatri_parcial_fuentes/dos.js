@@ -1,4 +1,4 @@
-/*
+/* HECHO POR MI, DA BIEN
 Realizar el algoritmo que permita ingresar los datos de una compra productos de la construccion, hasta que el cliente quiera:
 Tipo validad("arena";"cal";"cemento")
 Cantidad de bolsas,
@@ -128,6 +128,9 @@ function mostrar()
 //b) el importe total a pagar con descuento(solo si corresponde)
   importeTotal = importeBruto - importeBruto * porcentaje/100;
 
-  alert(tipoMasCaro);
+  	document.write("Importe total a pagar: $" + importeBruto + "<br>");
+	document.write("Importe total a pagar con descuento: $" + importeTotal + "<br>");
+	document.write("El tipo con mas cantidad de bolsas: " + tipoConMasCantidad + "<br>");
+	document.write("El tipo mas caro: " + tipoMasCaro + "<br>");
 
 }

@@ -56,11 +56,11 @@ function mostrar()
 				marca = prompt("Error, ingrese una marca valida: Seagate, Western Digital, Kingston");
 			}
 
-			capacidad = prompt("Ingrese la capacidad: 250Gb, 500Gb, 1Tb o 2Tb");
+			capacidad = prompt("Ingrese la capacidad: 250gb, 500gb, 1tb o 2tb");
 			capacidad = parseInt(capacidad);
 
-			while (capacidad != "250gb" && capacidad != "500gb" && capacidad != "1tb" && capacidad != "2tb")
-			{
+			while (isNaN(capacidad) != "250gb" && capacidad != "500gb" && capacidad != "1tb" && capacidad != "2tb")
+			{/*no muestra la capacidad*/
 				capacidad = prompt("Error, ingrese una capacidad valida: 250Gb, 500Gb, 1Tb, 2Tb");
 				capacidad = parseInt(capacidad);
 			}
