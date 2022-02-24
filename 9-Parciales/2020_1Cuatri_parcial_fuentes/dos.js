@@ -90,7 +90,6 @@ function mostrar()
 		tipoMasCaro = tipo;
 	}
 
-
   	respuesta = confirm("Desea ingresar más?");
 
   }//fin while general

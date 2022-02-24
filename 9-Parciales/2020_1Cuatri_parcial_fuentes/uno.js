@@ -87,7 +87,7 @@ function mostrar()
         }
         else
         { 
-          if(tipo == "jabon")
+          if(tipo == "jabon") /*c) Cuántas unidades de jabones hay en total*/
             {
             acumuladorJabon+= cantidad;
               contadorJabon++;
@@ -105,7 +105,7 @@ function mostrar()
         promedio = acumuladorAlcohol/contadorAlcohol;
         tipoConMasCantidad = "alcohol";
     }
-    else
+    else /*b) Del tipo con mas unidades, el promedio por compra*/
     {
       if (acumuladorJabon>acumuladorBarbijo)
       {
@@ -124,9 +124,7 @@ function mostrar()
 a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
 b) Del tipo con mas unidades, el promedio por compra
 c) Cuántas unidades de jabones hay en total*/
-      document.write("El alcohol mas economico es: "+alcoholMinimo+ "<br>");
-    document.write("La cantidad de unidades: "+ cantidadAlcohol+ "<br>");
-    document.write("El fabricante es: "+fabricanteAlcoholBarato+ "<br>");
+      
   }
   document.write("El tipo con mas unidades es: "+tipoConMasCantidad+ ", y el promedio es "+ promedio+"<br>");//.b
   document.write("La cantidad de jabones es: "+acumuladorJabon+ "<br>"); //.c
