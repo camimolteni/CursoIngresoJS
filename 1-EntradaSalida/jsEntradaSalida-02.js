@@ -8,113 +8,91 @@ c.	Promedio importe
 d.	Cantidad de productos de China
 e.	Sobre el maximo encontrado aplicar un descuento del 10% a dicho importe.
 */
+
+
 function mostrar()
+
 {
+
     var marcaProducto;
-    var pais;
-    var importe;
-    var banderaMinimoPais;
-    var banderaMaximoPais;
-    var promedio;
-    var control;
+    var paisOrigen;
+    var importeIngresado;
+    var contadorIngresos;
+    var importeMax;
+    var importeMin;
+    var banderaImporte;
     var paisMin;
-    var precioMin;
     var marcaMax;
-    var cantidadProductosChina;
+    var cantidadChina;
+    var promedioImporte;
+    var sumaImporte;
     var descuento;
-    var acumuladorChina;
-    var acumuladorUruguay;
-    var acumuladorParaguay;
-    var precioMax;
-    var porcentaje;
-    var importeTotal;
- 
-    porcentaje = 0;
-    cantidadProductosChina = 0;    
-    acumuladorChina = 0;  
-    promedio = 0;
-    precio = 0;
-    contadorImporte = 5;
-    
-    banderaMinimoPais = false;
-    banderaMaximoPais = false;
 
-    control = 0;
-    
-    
-    while(control < 5)
+    importeIngresado =0;
+    contadorIngresos =0;
+    banderaImporte =true;
+    cantidadChina =0;
+    sumaImporte =0;
+    descuento =0;
+
+    while(contadorIngresos<3)
     {
-    	importe = prompt("Ingrese un importe: ");
-    	importe = parseInt(importe);
+        contadorIngresos++
 
-    	while(isNaN(importe) || importe < 1)
-    	{
-    	importe = prompt("Error, ingrese un importe valido: ");
-    	importe = parseInt(importe);
-    	}
+        importeIngresado=prompt("Ingrese importe");
+        importeIngresado=parseInt(importeIngresado);
+            while(importeIngresado<1)
+            {
+                importeIngresado=prompt("Ingrese importe valido");
+                importeIngresado=parseInt(importeIngresado);
+            }
+                
+            marcaProducto=prompt("Ingrese marca de producto");
+            paisOrigen=prompt("Ingrese pais de origen").toLowerCase();
+                while(paisOrigen!="china" && paisOrigen!="uruguay" && paisOrigen!="paraguay")
+                {
+                    paisOrigen=prompt("Ingrese un pais valido").toLowerCase();
+                }
 
-        marcaProducto = prompt("Ingrese la marca del producto: ");
+                //a.	Minimo importe con su pais
+                //b.	Maximo importe con su marca
 
-       	pais = prompt("Ingrese el pais: China, Uruguay o Paraguay ");
+                if(importeIngresado<importeMin || banderaImporte == true)
+                {
+                    importeMin=importeIngresado;
+                    paisMin=paisOrigen;
+                }
 
-        while(pais != "China" && pais != "Uruguay" && pais != "Paraguay")
-        {
-        pais = prompt("Error. Reingrese el pais: China, Uruguay o Paraguay ");
-        }
+                if(importeIngresado>importeMax || banderaImporte == true)
+                {
+                    importeMax=importeIngresado;
+                    marcaMax=marcaProducto;
+                }
 
-    	if (pais < paisMin || banderaMinimoPais == false) //a. Minimo importe con su pais
-    	{
-    		paisMin = pais;
-    		precioMin = precio;
-    		banderaMinimoPais = true;
-    	}
-    	if (marcaProducto > marcaMax || banderaMaximoPais == false) //b. Maximo importe con su marca
-    	{
-    		marcaMax = marcaProducto;
-    		precioMax = precio;
-    		banderaMaximoPais = true;
-    	}
+                banderaImporte=false
 
-                 
+                if(paisOrigen=="china")
+                {
+                    cantidadChina++;
+                }
 
-        switch(cantidadProductosChina) //d.	Cantidad de productos de China 
-        //ESTA MAL EL CONTADOR DE CHINA EN UN SWITCH, porque es una estructura de seleccion multiple
-        //si solo tengo que preguntar una sola cosa, es con un if
-        {
-            case "China":
-            cantidadProductosChina++;
-            acumuladorChina += productos;
-            contadorImporteChina++;                 
-            break;
-            
-                        
-                 
-       }//FIN DEL SWITCH 
-
-    	control++;      
-
-      
-    }//FIN DEL WHILE
-
-    //e.	Sobre el maximo encontrado aplicar un descuento del 10% a dicho importe.
-    if (precioMax > precio)
-    {
-    	porcentaje = 10
-    }
-
-    //c.	Promedio importe 
-    
-    		promedio = acumuladorImporte / 5;
-    	
-
-    	cantidadProductosChina += acumuladorChina;
-    	importeTotal = importe + importe * porcentaje / 100;
+                sumaImporte+=importeIngresado;
+                promedioImporte= sumaImporte/contadorIngresos;
+                descuento= importeMax-(importeMax*0.10);
 
 
-    document.write("El pais con el minimo importe: " + paisMin + "<br>");
-    document.write("La marca con el maximo importe: " + marcaMax + "<br>");
-    document.write("El promedio del importe: " + promedio + "<br>");
-    document.write("La cantidad de productos de China: " + cantidadProductosChina + "<br>");
+
+    }//FIN DEL WHILE GENERAL
+
+    document.write("El minimo importe es " + importeMin + " y su pais es " + paisMin);
+    document.write("<br>El maximo importe es " + importeMax + " y marca es " + marcaMax);
+    document.write("<br>El promedio del importe total es " + promedioImporte);
+    document.write("<br>La cantidad de productos de china es " + cantidadChina);
+    document.write("<br>El precio maximo con descuento del 10 % es " + descuento);
+
+
+
+
 
 }//FIN DE LA FUNCION
 

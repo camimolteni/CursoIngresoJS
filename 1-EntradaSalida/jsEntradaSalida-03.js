@@ -15,10 +15,142 @@ Mostrar:
 a. Importe total de ventas, cantidad de ventas y comision. (Por cada vendedor)
 b. El nombre del vendedor que mas dinero recaudo en comisiones
 
-*/ //Ahora lo arregle y funciona
+*/
 
 function mostrar()
 {
+	var nombreVendedor;
+	var importeVenta;
+	var respuesta;
+	var comisionJuan;
+	var comisionMaria;
+	var comisionPedro;
+	var cantventasJuan;
+	var cantventasMaria;
+	var cantventasPedro;
+	var totalVentasJuan;
+	var totalVentasPedro;
+	var totalVentasMaria;
+	var vendedorConMasVentas;
+
+
+
+	respuesta = true;
+	cantventasPedro = 0;
+	cantventasJuan = 0;
+	cantventasMaria = 0;
+	totalVentasMaria = 0;
+	totalVentasPedro = 0;
+	totalVentasJuan = 0;
+
+
+	while (respuesta == true)
+	{
+		nombreVendedor = prompt("Ingrese el nombre del vendedor: Juan, Pedro o Maria").toLowerCase();
+
+			while (nombreVendedor != "juan" && nombreVendedor != "pedro" && nombreVendedor != "maria")
+			{
+				nombreVendedor = prompt("Ingrese el nombre del vendedor: Juan, Pedro o Maria").toLowerCase();
+			}
+
+		importeVenta = prompt("Ingrese el importe de la venta:");
+		importeVenta = parseInt(importeVenta);
+
+			while (isNaN(importeVenta) || importeVenta <0 || importeVenta >10000)
+			{
+				importeVenta = prompt("Error, ingrese un importe valido:");
+				importeVenta = parseInt(importeVenta);
+			}
+
+			respuesta = confirm("Desea continuar?");
+
+//a. Importe total de ventas, cantidad de ventas y comision. (Por cada vendedor)
+
+
+	switch(nombreVendedor) 
+	{
+		case "pedro":
+		cantventasPedro++;
+		totalVentasPedro += importeVenta;
+		break;
+
+		case "maria":
+		cantventasMaria++;
+		totalVentasMaria += importeVenta;
+		break;
+
+		case "juan":
+		cantventasJuan++;
+		totalVentasJuan += importeVenta;
+		break;
+
+	}//fin del switch
+
+
+
+
+	}//fin while general
+
+	//Si el vendedor logro recaudar en sus ventas un importe mayor o igual a $500000 obtendra una
+	// comisión del 10% sobre ese total. De no alcanzar esta cifra, su comision sera del 5%.
+
+	if (totalVentasPedro >= 500000)
+	{
+		comisionPedro = totalVentasPedro * 0.10;
+	}
+	else
+	{
+		comisionPedro = totalVentasPedro * 0.05;
+	}
+
+	if (totalVentasMaria >= 500000)
+	{
+		comisionMaria = totalVentasMaria * 0.10;
+	}
+	else
+	{
+		comisionMaria = totalVentasMaria * 0.05;
+	}
+
+	if (totalVentasJuan >= 500000)
+	{
+		comisionJuan = totalVentasJuan * 0.10;
+	}
+	else
+	{
+		comisionJuan = totalVentasJuan * 0.05;
+	}
+
+	//b. El nombre del vendedor que mas dinero recaudo en comisiones
+
+	if (comisionJuan > comisionMaria && comisionJuan > comisionPedro)
+	{
+		vendedorConMasVentas = "Juan";
+	}
+	else
+		if (comisionMaria > comisionPedro)
+		{
+			vendedorConMasVentas = "Maria";
+		}
+		else
+		{
+			vendedorConMasVentas = "Pedro";
+		}
+
+
+	document.write("El importe total de ventas de Maria: " + totalVentasMaria + " la cantidad de ventas fueron " + cantventasMaria + " y su comision: " + comisionMaria + "<br>");
+	document.write("El importe total de ventas de Pedro: " + totalVentasPedro + " la cantidad de ventas fueron " + cantventasPedro + " y su comision: " + comisionPedro + "<br>");
+	document.write("El importe total de ventas de Juan: " + totalVentasJuan + " la cantidad de ventas fueron " + cantventasJuan + " y su comision: " + comisionJuan + "<br>");
+	document.write("El vendedor que mas comisiono fue: " + vendedorConMasVentas + "<br>");
+	
+
+
+
+
+}
+
+
+ /* //Ahora lo arregle y funciona
    var nombre;
    var importe;
    var vendedorConMasVentas;
@@ -129,7 +261,7 @@ function mostrar()
     document.write("Vendedor Maria: importe $" + acumuladorImporteMaria + ", cantidad de ventas: " + cantidadVentasMaria + ", comision: $" + comisionMaria + "<br>");
     document.write("El nombre del vendedor que mas comisiono es: " + vendedorConMasVentas);
     
-} //fin del mio
+} //fin del mio*/
 
 
 /*LIZZIO JULIETA DIV I
