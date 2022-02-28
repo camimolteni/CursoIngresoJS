@@ -1,4 +1,4 @@
-/*Camila Molteni DIV I
+/*Camila Molteni DIV I PRACTICA HECHO POR MI
 
 1.	Se ingresan 5 importes, marca del producto y pais de origen (China, Uruguar o Paraguay).
 Calcular y mostrar:
@@ -13,8 +13,85 @@ e.	Sobre el maximo encontrado aplicar un descuento del 10% a dicho importe.
 function mostrar()
 
 {
+	var marcaProducto;
+	var paisDeOrigen;
+	var control;
+	var importeIngresado;
+	var banderaImporte;
+	var paisMin;
+	var importeMin;
+	var importeMax;
+	var marcaMax;
+	var promedio;
+	var importeTotal;
+	var productosChina;
+	var contadorChina;
+	var importeMax;
+	var acumuladorImporte;
+	var descuentoImpMax;
 
-    var marcaProducto;
+	control = 0;
+	banderaImporte = false;
+	contadorChina = 0;
+	acumuladorImporte = 0;
+
+
+	while(control < 2)
+	{
+		importeIngresado = prompt("Ingrese el importe: ");
+		importeIngresado = parseInt(importeIngresado); 
+
+		marcaProducto = prompt("Ingrese la marca del producto");
+
+		paisDeOrigen = prompt("Ingrese el pais de origen: China, Uruguay, Paraguay");
+
+		while (paisDeOrigen != "china" && paisDeOrigen != "uruguay" && paisDeOrigen != "paraguay")
+		{
+			paisDeOrigen = prompt("Error, ingrese un pais de origen valido: China, Uruguay, Paraguay");
+		}
+
+	if (importeMin > importeIngresado || banderaImporte == false)
+	{
+		paisMin = paisDeOrigen;
+		importeMin = importeIngresado;
+	}
+
+	if (importeMax < importeIngresado || banderaImporte == false)
+	{
+		marcaMax = marcaProducto
+		importeMax = importeIngresado;
+	}
+
+	acumuladorImporte += importeIngresado;
+
+	if (paisDeOrigen == "china")
+	{
+		contadorChina++;
+	}
+
+	banderaImporte = true;
+
+	control++;
+	} // fin while general
+
+	promedio = acumuladorImporte / control;
+
+
+	descuentoImpMax = importeMax - importeMax * 10/100;
+
+	document.write("El minimo importe ingresado es: " + importeMin + " y su pais: " + paisMin + "<br>");
+	document.write("El maximo importe ingresado es: " + importeMax + " y su marca: " + marcaMax + "<br>");
+	document.write("El promedio es: " + promedio + "<br>");
+	document.write("La cantidad de productos de china es: " + contadorChina + "<br>");
+	document.write("El total con descuento es: " + descuentoImpMax + "<br>");
+
+
+
+
+
+}	
+
+  /*  var marcaProducto;
     var paisOrigen;
     var importeIngresado;
     var contadorIngresos;
@@ -94,7 +171,7 @@ function mostrar()
 
 
 
-}//FIN DE LA FUNCION
+}//FIN DE LA FUNCION*/
 
 
 /*LIZZIO JULIETA DIV I
