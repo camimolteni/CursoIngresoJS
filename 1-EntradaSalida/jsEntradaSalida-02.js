@@ -7,7 +7,8 @@ b.	Maximo importe con su marca
 c.	Promedio importe
 d.	Cantidad de productos de China
 e.	Sobre el maximo encontrado aplicar un descuento del 10% a dicho importe.
-*/
+
+ABAJO ESTA EL DE JULI*/
 
 
 function mostrar()
@@ -90,89 +91,6 @@ function mostrar()
 
 
 }	
-
-  /*  var marcaProducto;
-    var paisOrigen;
-    var importeIngresado;
-    var contadorIngresos;
-    var importeMax;
-    var importeMin;
-    var banderaImporte;
-    var paisMin;
-    var marcaMax;
-    var cantidadChina;
-    var promedioImporte;
-    var sumaImporte;
-    var descuento;
-
-    importeIngresado =0;
-    contadorIngresos =0;
-    banderaImporte =true;
-    cantidadChina =0;
-    sumaImporte =0;
-    descuento =0;
-
-    while(contadorIngresos<3)
-    {
-        contadorIngresos++
-
-        importeIngresado=prompt("Ingrese importe");
-        importeIngresado=parseInt(importeIngresado);
-            while(importeIngresado<1)
-            {
-                importeIngresado=prompt("Ingrese importe valido");
-                importeIngresado=parseInt(importeIngresado);
-            }
-                
-            marcaProducto=prompt("Ingrese marca de producto");
-            paisOrigen=prompt("Ingrese pais de origen").toLowerCase();
-                while(paisOrigen!="china" && paisOrigen!="uruguay" && paisOrigen!="paraguay")
-                {
-                    paisOrigen=prompt("Ingrese un pais valido").toLowerCase();
-                }
-
-                //a.	Minimo importe con su pais
-                //b.	Maximo importe con su marca
-
-                if(importeIngresado<importeMin || banderaImporte == true)
-                {
-                    importeMin=importeIngresado;
-                    paisMin=paisOrigen;
-                }
-
-                if(importeIngresado>importeMax || banderaImporte == true)
-                {
-                    importeMax=importeIngresado;
-                    marcaMax=marcaProducto;
-                }
-
-                banderaImporte=false
-
-                if(paisOrigen=="china")
-                {
-                    cantidadChina++;
-                }
-
-                sumaImporte+=importeIngresado;
-                promedioImporte= sumaImporte/contadorIngresos;
-                descuento= importeMax-(importeMax*0.10);
-
-
-
-    }//FIN DEL WHILE GENERAL
-
-    document.write("El minimo importe es " + importeMin + " y su pais es " + paisMin);
-    document.write("<br>El maximo importe es " + importeMax + " y marca es " + marcaMax);
-    document.write("<br>El promedio del importe total es " + promedioImporte);
-    document.write("<br>La cantidad de productos de china es " + cantidadChina);
-    document.write("<br>El precio maximo con descuento del 10 % es " + descuento);
-
-
-
-
-
-}//FIN DE LA FUNCION*/
-
 
 /*LIZZIO JULIETA DIV I
 EJERCICIO 1

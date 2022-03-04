@@ -1,4 +1,3 @@
-
  /*. Una cervecería necesita realizar un sistema de ventas online, donde se calculará las
 preferencias de 10 usuarios del sitio.
 Los datos necesarios son:

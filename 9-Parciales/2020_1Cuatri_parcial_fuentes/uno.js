@@ -1,3 +1,167 @@
+/*2. El centro de hisopado de Ezeiza recibe una tripulación de 8 personas.
+Al ser hisopadas se ingresan sus datos en la aplicación:
+-Nacionalidad ("argentina", "extranjero")
+-Resultado ("positivo", "negativo")
+-Edad (entre 18 y 65)
+-Cepa("Delta", "Alfa", "Beta", "Ninguna")
+Para poder ingresar ninguna el resultado debe ser negativo
+Luego del ingreso informar:
+a-Porcentaje de positivos 
+b-Porcentaje de negativos
+c-Cuál es la cepa menos encontrada
+d-Edad del menor argentino contagiado
+e-Cantidad de personas extranjeras contagiadas con la delta*/
+function mostrar()
+{
+  var control;
+  var nacionalidad;
+  var resultado;
+  var edad;
+  var cepa;
+  var contadorPositivos;
+  var contadorNegativos;
+  var porcentaje;
+  var contadorDelta;
+  var contadorBeta;
+  var contadorAlfa;
+  var menorEdad;
+  var banderaMenorEdadContagiado;
+  var contadorExtranjeros;
+  
+
+  control = 0;
+  contadorPositivos = 0;
+  contadorNegativos = 0;
+  contadorDelta = 0;
+  contadorBeta = 0;
+  contadorAlfa = 0;
+  contadorExtranjeros = 0;
+  banderaMenorEdadContagiado = false;
+
+
+  while(control < 3)
+  {
+    nacionalidad = prompt("Ingrese nacionalidad: argentina o extranjero");
+    
+
+    while(nacionalidad != "argentina" && nacionalidad != "extranjero")
+    {
+      nacionalidad = prompt("Ingrese una nacionalidad valida: argentina o extranjero");
+      
+    }
+
+    resultado = prompt("Ingrese un resultado: positivo o negativo");
+
+    while(resultado != "positivo" && resultado != "negativo")
+    {
+      resultado = prompt("Ingrese un resultado valido");
+    }
+
+    edad = prompt("Ingrese una edad entre 18 y 65 años");
+    edad = parseInt(edad);
+
+    while(edad < 18 || edad > 65 )
+    {
+      edad = prompt("Reingrese una edad entre 18 y 65 años");
+      edad = parseInt(edad);
+    }
+    if(resultado == "negativo")
+    { 
+      cepa = prompt("Ingrese una cepa: ninguna");
+      while(cepa != "ninguna")
+      {
+        cepa = prompt("Ingrese una cepa: ninguna");
+      }
+    }
+    else
+    {
+      cepa = prompt("Ingrese cepa: alfa, beta o delta")
+      while(cepa != "delta" && cepa != "alfa" && cepa != "beta")
+      {
+      cepa = prompt("Reingrese una cepa: delta, alfa, beta, ninguna");
+      }
+    }
+
+    if(resultado == "positivo")
+    {
+      contadorPositivos++;
+      if(nacionalidad == "argentina")
+      {
+        if(menorEdad < edad || banderaMenorEdadContagiado == false)
+        {
+          menorEdad = edad;
+          banderaMenorEdadContagiado = true;
+        }
+      }
+    }
+    else
+    {
+      contadorNegativos++;
+    }
+
+    switch(cepa)
+    {
+      case "delta":
+      contadorDelta++;
+      if(nacionalidad == "extranjero")
+      {
+        contadorExtranjeros++;
+      }
+      break;
+      case "beta":
+      contadorBeta++;
+      break;
+      case "alfa":
+      contadorAlfa++;
+      break;
+    }
+    
+
+
+
+    control++;
+   }
+
+
+
+   porcentaje = contadorPositivos * 100 / control;
+   document.write("El porcentaje de positivos es " + porcentaje + "<br>");
+
+   porcentaje = contadorNegativos * 100 / control;
+   document.write("El porcentaje de negativos es " + porcentaje + "<br>");
+
+   if(contadorDelta < contadorBeta && contadorDelta < contadorAlfa)
+   {
+      document.write("La cepa menos encontrada es la delta <br>");
+   }
+   else
+   {
+    if(contadorBeta < contadorAlfa)
+   {
+      document.write("La cepa menos encontrada es la beta <br>");
+   }
+   else
+   {
+      document.write("La cepa menos encontrada es la alfa <br>");
+   }
+   }
+   
+   document.write("La edad del menor argentino contagiado es: " + menorEdad + "<br>");
+   document.write("La cantidad de personas contagiadas con la delta: " + contadorDelta + "<br>");
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /*Debemos realizar la carga de 5(cinco) productos de prevención de contagio,
 de cada una debo obtener los siguientes datos:
 el tipo (validar "barbijo" , "jabón" o "alcohol") ,
@@ -7,34 +171,9 @@ la Marca y el fabricante.
 Se debe Informar al usuario lo siguiente:
 a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
 b) Del tipo con mas unidades, el promedio por compra
-c) Cuántas unidades de jabones hay en total*/
+c) Cuántas unidades de jabones hay en total
 
-function mostrar()
-{
-
-} 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*    let control; //carga de productos
+ let control; //carga de productos
     let tipo;
     let precio;
     let cantidad;

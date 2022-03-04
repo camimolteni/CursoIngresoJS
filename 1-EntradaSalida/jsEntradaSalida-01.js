@@ -1,3 +1,175 @@
+/*En el ingreso a un viaje en avion nos solicitan nombre , edad, sexo("f" o "m")
+ y estado civil("soltero", "casado" o "viudo")y temperatura corporal.
+a) El nombre de la persona con mas temperatura.
+b) Cuantos mayores de edad estan viudos
+c) La cantidad de hombres que hay solteros o viudos.
+d) cuantas personas de la tercera edad( mas de 60 años) , tienen mas de 38 de temperatura
+e) El promedio de edad entre los hombres solteros.*/
+
+function mostrar()
+
+{
+  var nombre;
+  var edad;
+  var sexo;
+  var estadoCivil;
+  var temperaturaCorporal;
+  var respuesta;
+  var temperaturaMaxima;
+  var banderaTemperaturaMaxima;
+  var nombreTemperaturaMaxima;
+  var contadorViudosMayores;
+  var contadorHombresSolterosViudos;
+  var contadorPersonasTerceraEdad;
+  var acumuladorEdad;
+  var promedio;
+  var contadorHombresSolteros;
+
+
+
+  respuesta = true;
+  banderaTemperaturaMaxima = true;
+  contadorViudosMayores = 0;
+  contadorHombresSolterosViudos = 0;
+  contadorPersonasTerceraEdad = 0;
+  acumuladorEdad = 0;
+  contadorHombresSolteros = 0;
+
+
+  while (respuesta == true)
+  {
+    nombre = prompt("Ingrese su nombre: ");
+
+    edad = prompt("Ingrese su edad: ");
+    edad = parseInt(edad);
+
+    while(isNaN(edad))
+    { 
+      edad = prompt("Reingrese su edad: ");
+      edad = parseInt(edad);
+    }
+
+    sexo = prompt("Ingrese su sexo: f o m")
+
+    while(sexo != "f" && sexo != "m")
+    {
+      sexo = prompt("Reingrese su sexo: f o m")
+    }
+
+    estadoCivil = prompt("Ingrese su estado civil: soltero, casado, viudo").toLowerCase();
+
+    while(estadoCivil != "soltero" && estadoCivil != "casado" && estadoCivil != "viudo")
+    {
+      estadoCivil = prompt("Ingrese su estado civil: soltero, casado, viudo").toLowerCase();
+    }
+
+    temperaturaCorporal = prompt("Ingrese la temperatura corporal: ")
+
+  //a) El nombre de la persona con mas temperatura.
+  if (temperaturaCorporal > temperaturaMaxima || banderaTemperaturaMaxima == true)
+  {
+    temperaturaMaxima = temperaturaCorporal;
+    nombreTemperaturaMaxima = nombre;
+    banderaTemperaturaMaxima = false;
+  }
+
+  //b) Cuantos mayores de edad estan viudos
+  if (edad > 18 && estadoCivil == "viudos")
+  {
+    contadorViudosMayores++;
+  }
+
+  //c) La cantidad de hombres que hay solteros o viudos.
+  if (sexo == "m" && estadoCivil == "soltero" || estadoCivil == "viudo")
+  {
+    contadorHombresSolterosViudos++;
+  }
+
+  //d) cuantas personas de la tercera edad( mas de 60 años) , tienen mas de 38 de temperatura
+  if (edad > 60 && temperaturaCorporal > 38)
+  {
+    contadorPersonasTerceraEdad++;
+  }
+
+  //e) El promedio de edad entre los hombres solteros.
+  if (sexo == "m" && estadoCivil == "soltero")
+  {
+    contadorHombresSolteros++;
+    acumuladorEdad += edad;
+
+  }
+
+
+  respuesta = confirm("Desea ingresar mas datos?")
+  } // fin del while
+
+
+  promedio = acumuladorEdad / contadorHombresSolteros;
+
+  document.write("El nombre de la persona con mas temperatura es: " + nombreTemperaturaMaxima + "<br>");
+  document.write("La cantidad de mayores de edad viudos: " + contadorViudosMayores + "<br>");
+  document.write("La cantidad de hombres solteros o viudos: " + contadorHombresSolterosViudos + "<br>");
+  document.write("Las personas mayores de 60 años que tienen mas de 38 grados: " + contadorPersonasTerceraEdad + "<br>");
+  document.write("El promedio de edad de los hombres solteros es: " + promedio + "<br>");
+
+
+
+
+
+
+
+
+
+
+
+  if(tipo == "minorista")
+  {
+    if (precio > precioMasCaro || banderaPrecioMasCaro == false)
+    {
+      precioMasCaro = precio;
+      nombreMasCaro = nombre;
+      banderaPrecioMasCaro = true;
+    }
+  }
+
+  if(cantidadUnidades < unidadMinima || banderaUnidadMinima == false)
+  {
+    unidadMinima = cantidadUnidades
+    nombreMenosUnidades = nombreProdcuto;
+    banderaUnidadMinima = true;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*Nos dedicamos a la venta exclusiva de Discos rígidos.
 Debemos realizar la carga de 5(cinco) productos,
  de cada uno debo obtener los 
@@ -13,7 +185,7 @@ b) Del tipo HDD, el de mayor precio, capacidad de almacenamiento y cantidad de u
    disponibles. 
 c) Cuántas unidades de HDD hay en total.
 
-PROBADO Y DA BIEN!!!!!*/
+PROBADO Y DA BIEN!!!!!
 
 function mostrar()
 {
@@ -52,35 +224,35 @@ function mostrar()
 
       while(tipoProducto !="HDD" && tipoProducto !="SSD" && tipoProducto !="SSDM2")
       {
-          tipoProducto= prompt("Error, ingrese el tipo de disco correspodiente");
+          tipoProducto = prompt("Error, ingrese el tipo de disco correspodiente");
       }
-          precio= prompt("Ingrese el precio del producto");
-          precio= parseInt(precio);
+          precio = prompt("Ingrese el precio del producto");
+          precio = parseInt(precio);
 
       while(precio <5000 || precio >18000)
       {
-          precio= prompt("Error, reingrese el rango de precio indicado");
-          precio= parseInt(precio);
+          precio = prompt("Error, reingrese el rango de precio indicado");
+          precio = parseInt(precio);
       }
-          marca= prompt("Ingrese la marca: Seagate / Western Digital / Kingston");
+          marca = prompt("Ingrese la marca: Seagate / Western Digital / Kingston");
 
       while(marca !="Seagate" && marca !="Western Digital" && marca !="Kingston")
       {
-          marca= prompt("Error, ingrese el tipo de marca correcta");
+          marca = prompt("Error, ingrese el tipo de marca correcta");
       }
-          capacidad= prompt("Ingrese la capacidad; 250Gb / 500Gb / 1Tb / 2Tb");
+          capacidad = prompt("Ingrese la capacidad; 250Gb / 500Gb / 1Tb / 2Tb");
 
       while(capacidad!= "250Gb" && capacidad!= "500Gb" && capacidad!= "1Tb" && capacidad!= "2Tb")
       {
-          capacidad= prompt("Error, reingrese la capacidad");
+          capacidad = prompt("Error, reingrese la capacidad");
       }
-          cantidadUnidades= prompt("Ingrese la cantidad de unidades");
-          cantidadUnidades= parseInt(cantidadUnidades);
+          cantidadUnidades = prompt("Ingrese la cantidad de unidades");
+          cantidadUnidades = parseInt(cantidadUnidades);
       
       while(cantidadUnidades <0 || cantidadUnidades >50)
       {
-         cantidadUnidades= prompt("Ingrese la cantidad de unidades");
-         cantidadUnidades= parseInt(cantidadUnidades);
+         cantidadUnidades = prompt("Ingrese la cantidad de unidades");
+         cantidadUnidades = parseInt(cantidadUnidades);
       }
        
 
@@ -122,7 +294,7 @@ function mostrar()
 
 
 
-/*
+
 Molteni Camila DIV I
 E/S-01
 Al presionar el  botón, 
