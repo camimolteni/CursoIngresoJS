@@ -12,13 +12,16 @@ LO HICE Y DA BIEN*/
 
 function mostrar()
 {
-	var nombrePais;
+	var paisIngresado;
 	var cantidadHabitantes;
 	var temperatura;
 	var respuesta;
 	var contadorTempPar;
-	var acumuladorTempPar;
-	var paisMenosHabitantes;
+
+	var banderaMenosHabitantes;
+	var nombrePaisMenosHabitantes;
+	var cantMinHabitantes;
+
 	var minimaTemperatura;
 	var paisMinimaTemperatura;
 	var contadorHabitantes;
@@ -27,31 +30,25 @@ function mostrar()
 	var acumuladorPaises;
 
 	contadorTempPar = 0;
-	acumuladorTempPar = 0;
-	paisMenosHabitantes = 0;
+	
 	minimaTemperatura = 0;
 	contadorHabitantes = 0;
 	acumuladorHabitantes = 0;
 	contadorPaises = 0;
 	acumuladorPaises = 0;
-
+	banderaMenosHabitantes = true;
 	respuesta = true;
 
 	while(respuesta)
 	{
-		nombrePais = prompt("Ingrese el nombre del pais: ");
-
-		while(!nombrePais)
-		{
-			nombrePais = prompt("Error, ingrese el nombre del pais: ");
-		}
+		paisIngresado = prompt("Ingrese el nombre del pais: ");
 
 		cantidadHabitantes = prompt("Ingrese la cantidad de habitantes: Entre 1 y 7000");
 		cantidadHabitantes = parseInt(cantidadHabitantes);
 
 		while(isNaN(cantidadHabitantes) || cantidadHabitantes <1 || cantidadHabitantes > 7000)
 		{
-			cantidadHabitantes = prompt("Error, reingrese la cantidad de habitantes: Entre 1 y 7000");
+			cantidadHabitantes = prompt("Error, reingrese la cantidad de habitantes: Entre 1000000 y 7000000");
 			cantidadHabitantes = parseInt(cantidadHabitantes);
 		}
 
@@ -68,13 +65,14 @@ function mostrar()
 		if (temperatura % 2 == 0)
 		{
 			contadorTempPar++;
-			acumuladorTempPar += temperatura;
 		}
 
 		//b) El nombre del pais con menos habitantes
-		if (!paisMenosHabitantes || nombrePais < paisMenosHabitantes)
+		if (cantidadMinHabitantes > cantidadHabitantes || banderaMenosHabitantes == false)
 		{
-			paisMenosHabitantes = nombrePais
+			cantidadMinHabitantes = cantidadHabitantes;
+			nombrePaisMenosHabitantes = paisIngresado;
+			banderaMenosHabitantes = false;
 		}
 
 		//c) la cantidad de paises que superan los 40 grados.

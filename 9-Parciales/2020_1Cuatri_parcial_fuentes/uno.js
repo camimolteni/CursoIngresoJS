@@ -12,7 +12,29 @@ c) Cuántas unidades de jabones hay en total*/
 function mostrar()
 {
 
-    let control; //carga de productos
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*    let control; //carga de productos
     let tipo;
     let precio;
     let cantidad;
@@ -88,7 +110,7 @@ function mostrar()
         else
         { 
           if(tipo == "jabon") /*c) Cuántas unidades de jabones hay en total*/
-            {
+           /* {
             acumuladorJabon+= cantidad;
               contadorJabon++;
           }
@@ -106,7 +128,7 @@ function mostrar()
         tipoConMasCantidad = "alcohol";
     }
     else /*b) Del tipo con mas unidades, el promedio por compra*/
-    {
+    /*{
       if (acumuladorJabon>acumuladorBarbijo)
       {
         promedio = acumuladorJabon/contadorJabon;
@@ -119,17 +141,9 @@ function mostrar()
       }
     }
     if(contadorAlcohol>0)
-    {
-      /*Se debe Informar al usuario lo siguiente:
-a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
-b) Del tipo con mas unidades, el promedio por compra
-c) Cuántas unidades de jabones hay en total*/
-      
-  }
-  document.write("El tipo con mas unidades es: "+tipoConMasCantidad+ ", y el promedio es "+ promedio+"<br>");//.b
-  document.write("La cantidad de jabones es: "+acumuladorJabon+ "<br>"); //.c
-} 
+    {*/
 
+  
 
   /*Este lo hicimos el domingo practicando
   var precio;

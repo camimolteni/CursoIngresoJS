@@ -19,6 +19,8 @@ function mostrar()
 	var nombreMasPesado;
 	var temperaturaMasPesado;
 	var contadorAnimMenor0;
+	var banderaPesoMaximo;
+	var banderaPesoMinimo;
 	var pesoMaximo;
 	var pesoMinimo;
 	var contadorPesoTotal;
@@ -26,11 +28,13 @@ function mostrar()
 
 
 	contadorTemperaturaPar = 0;
+	temperaturaMasPesado = 0;
 	contadorAnimMenor0 = 0;
 	contadorPesoTotal = 0;
 	acumuladorPesoTotal = 0;
 	nombreMasPesado = 0;
-	
+	banderaPesoMinimo = false;
+	banderaPesoMaximo = false;
 
 	respuesta = true;
 
@@ -46,7 +50,7 @@ function mostrar()
 		pesoAnimal = prompt("Ingrese el peso del animal: Entre 1 y 1000kg");
 		pesoAnimal = parseInt(pesoAnimal);
 
-		while (isNaN(pesoAnimal) || pesoAnimal <1 || pesoAnimal > 1000)
+		while (isNaN(pesoAnimal) || pesoAnimal <1 || pesoAnimal > 1001)
 		{
 		pesoAnimal = prompt("Error, ingrese un peso valido: Entre 1 y 1000kg");
 		pesoAnimal = parseInt(pesoAnimal);
@@ -67,21 +71,22 @@ function mostrar()
 			contadorTemperaturaPar++;
 		}
 
+		//b) El nombre y temperatura del animal más pesado
+		if (!pesoMaximo || pesoAnimal > pesoMaximo)
+		{
+			nombreMasPesado = nombreAnimal;
+			temperaturaMasPesado = temperaturaHabitat;
+		}	
+
 
 		//c) La cantidad de animales que viven a menos de 0 grados.
+		//f) El peso máximo y el mínimo de todos los animales cuyas temperaturas sean bajo cero.
 		if (temperaturaHabitat < 0)
 		{
 			contadorAnimMenor0++;
+			pesoMaximo = pesoAnimal;
+			pesoMinimo = pesoAnimal;
 		}
-		//f) El peso máximo y el mínimo de todos los animales cuyas temperaturas sean bajo cero.
-			else if (!pesoMaximo || pesoAnimal > pesoMaximo)
-			{
-				pesoMaximo = pesoAnimal;
-			}
-			if (!pesoMinimo || pesoAnimal < pesoMinimo)
-			{
-				pesoMinimo = pesoAnimal;
-			}
 
 
 		//d) El promedio del peso de todos los animales.
@@ -93,16 +98,11 @@ function mostrar()
 		respuesta = confirm("Desea ingresar mas datos?");
 	} // fin del while
 
-		//b) El nombre y temperatura del animal más pesado
-		if (!nombreMasPesado || nombreAnimal > nombreMasPesado || temperatura > temperaturaMasPesado)
-		{
-			nombreMasPesado = nombreAnimal;
-			temperaturaMasPesado = temperaturaHabitat;
-		}
+		
 
 
 	document.write("La cantidad de temperaturas pares es: " + contadorTemperaturaPar + "<br>");
-	document.write("El nombre del animal mas pesado: " + nombreMasPesado + "y la temperatura del habitat: " + temperaturaMasPesado + "<br>");
+	document.write("El nombre del animal mas pesado: " + nombreMasPesado + " y la temperatura del habitat: " + temperaturaMasPesado + "<br>");
 	document.write("La cantidad de animales que viven a menos de 0 grados: " + contadorAnimMenor0 + "<br>");
 	document.write("El promedio del peso de todos los animales es: " + acumuladorPesoTotal / contadorPesoTotal + "<br>");
 	document.write("El peso minimo de los animales que viven bajo cero: " + pesoMinimo + "<br>");
