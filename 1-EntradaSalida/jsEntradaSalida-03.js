@@ -14,8 +14,7 @@ De no alcanzar esta cifra, su comision sera del 5%.
 Mostrar:
 a. Importe total de ventas, cantidad de ventas y comision. (Por cada vendedor)
 b. El nombre del vendedor que mas dinero recaudo en comisiones
-
-ABAJO ESTA EL DE JULI Y COMPAÑERO*/
+*/
 
 function mostrar()
 {

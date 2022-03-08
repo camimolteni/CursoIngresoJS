@@ -1,5 +1,5 @@
 /*
-Lopez Gonzalo Javier - DIV I
+LGJ
 
 3.	De los 10 empleados de una PYME se ingresan los siguientes datos:
 Nombre y apellido

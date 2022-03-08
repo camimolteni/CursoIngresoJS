@@ -1,4 +1,4 @@
-/*Camila Molteni DIV I PRACTICA HECHO POR MI
+/*Camila Molteni DIV I 
 
 1.	Se ingresan 5 importes, marca del producto y pais de origen (China, Uruguar o Paraguay).
 Calcular y mostrar:
@@ -8,7 +8,7 @@ c.	Promedio importe
 d.	Cantidad de productos de China
 e.	Sobre el maximo encontrado aplicar un descuento del 10% a dicho importe.
 
-ABAJO ESTA EL DE JULI*/
+*/
 
 
 function mostrar()

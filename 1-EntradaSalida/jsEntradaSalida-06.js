@@ -1,4 +1,4 @@
-/*PARCIAL DE HOY
+/*
  EJERCICIO 2
 2)De una compra debes ingresar una cantidad indeterminada de productos, validando los siguientes datos:
 nombre de producto, precio, unidades, tipo(minorista o mayorista)

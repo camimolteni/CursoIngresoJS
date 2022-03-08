@@ -1,143 +1,165 @@
-/*En el ingreso a un viaje en avion nos solicitan nombre , edad, sexo("f" o "m")
- y estado civil("soltero", "casado" o "viudo")y temperatura corporal.
-a) El nombre de la persona con mas temperatura.
-b) Cuantos mayores de edad estan viudos
-c) La cantidad de hombres que hay solteros o viudos.
-d) cuantas personas de la tercera edad( mas de 60 años) , tienen mas de 38 de temperatura
-e) El promedio de edad entre los hombres solteros.*/
+/*Camila Molteni DIV I
+2. Un jugador de League of Legends tiene un fin de semana libre y va a jugar 15
+partidas.
+Para mejorar su jugabilidad, por cada partida jugada va a registrar:
+- Modo de juego ("Normal", "Clasificatoria", "ARAM")
+- Nombre del personaje que usó (“Vayne”,”Annie”,”Renata”)
+- La cantidad de asesinatos. (No puede ser negativo)
+- La cantidad de muertes. (No puede ser negativo)
+- La cantidad de asistencias. (No puede ser negativo)
+De lo registrado, al jugador le interesa lo siguiente:
+a) El modo de juego más jugado.
+b) De las partidas ARAM, el personaje con menos asistencias.
+c) El promedio de muertes.
+d) El porcentaje sobre los modos de juego. (ejemplo: 20% normal, 50% clasificatoria y
+30 % ARAM.)
+
+FUNCIONA Y ESTA BIEN HECHO!*/
 
 function mostrar()
 
 {
-  var nombre;
-  var edad;
-  var sexo;
-  var estadoCivil;
-  var temperaturaCorporal;
-  var respuesta;
-  var temperaturaMaxima;
-  var banderaTemperaturaMaxima;
-  var nombreTemperaturaMaxima;
-  var contadorViudosMayores;
-  var contadorHombresSolterosViudos;
-  var contadorPersonasTerceraEdad;
-  var acumuladorEdad;
-  var promedio;
-  var contadorHombresSolteros;
+
+  var modoDeJuego;
+  var nombreDelPersonaje;
+  var cantidadAsesinatos;
+  var cantidadMuertes;
+  var cantidadAsistencias;
+  var control;
+
+  var contadorNormal;
+  var contadorClasificatoria;
+  var contadorAram;
+  var modoMasJugado;
+
+  var asistenciaMinima;
+  var personajeMenosAsistencias;
+  var banderaMenosAsistencias;
+  var nombreMenosAsistencias;
+
+  var promedioMuertes;
+  var acumuladorMuertes;
+  var porcentajeNormal;
+  var porcentajeClasificatoria;
+  var porcentajeAram;
 
 
+  control = 0;
+  contadorNormal = 0;
+  contadorClasificatoria = 0;
+  contadorAram = 0;
+  banderaMenosAsistencias = false;
+  acumuladorMuertes = 0;
 
-  respuesta = true;
-  banderaTemperaturaMaxima = true;
-  contadorViudosMayores = 0;
-  contadorHombresSolterosViudos = 0;
-  contadorPersonasTerceraEdad = 0;
-  acumuladorEdad = 0;
-  contadorHombresSolteros = 0;
-
-
-  while (respuesta == true)
+  while(control < 15)
   {
-    nombre = prompt("Ingrese su nombre: ");
+    modoDeJuego = prompt("Ingrese el modo de juego: normal, clasificatoria, ARAM").toLowerCase();
 
-    edad = prompt("Ingrese su edad: ");
-    edad = parseInt(edad);
-
-    while(isNaN(edad))
-    { 
-      edad = prompt("Reingrese su edad: ");
-      edad = parseInt(edad);
-    }
-
-    sexo = prompt("Ingrese su sexo: f o m")
-
-    while(sexo != "f" && sexo != "m")
+    while(modoDeJuego != "normal" && modoDeJuego != "clasificatoria" && modoDeJuego != "aram")
     {
-      sexo = prompt("Reingrese su sexo: f o m")
+      modoDeJuego = prompt("Reingrese el modo de juego: normal, clasificatoria, ARAM");
     }
 
-    estadoCivil = prompt("Ingrese su estado civil: soltero, casado, viudo").toLowerCase();
+    nombreDelPersonaje = prompt("Ingrese el nombre del personaje: Vayne, Annie, Renata").toLowerCase();
 
-    while(estadoCivil != "soltero" && estadoCivil != "casado" && estadoCivil != "viudo")
+    while(nombreDelPersonaje != "vayne" && nombreDelPersonaje != "annie" && nombreDelPersonaje != "renata")
     {
-      estadoCivil = prompt("Ingrese su estado civil: soltero, casado, viudo").toLowerCase();
+      nombreDelPersonaje = prompt("Reingrese el nombre del personaje: Vayne, Annie, Renata");
     }
 
-    temperaturaCorporal = prompt("Ingrese la temperatura corporal: ")
+    cantidadAsesinatos = prompt("Ingrese la cantidad de asesinatos:");
+    cantidadAsesinatos = parseInt(cantidadAsesinatos);
 
-  //a) El nombre de la persona con mas temperatura.
-  if (temperaturaCorporal > temperaturaMaxima || banderaTemperaturaMaxima == true)
-  {
-    temperaturaMaxima = temperaturaCorporal;
-    nombreTemperaturaMaxima = nombre;
-    banderaTemperaturaMaxima = false;
-  }
-
-  //b) Cuantos mayores de edad estan viudos
-  if (edad > 18 && estadoCivil == "viudos")
-  {
-    contadorViudosMayores++;
-  }
-
-  //c) La cantidad de hombres que hay solteros o viudos.
-  if (sexo == "m" && estadoCivil == "soltero" || estadoCivil == "viudo")
-  {
-    contadorHombresSolterosViudos++;
-  }
-
-  //d) cuantas personas de la tercera edad( mas de 60 años) , tienen mas de 38 de temperatura
-  if (edad > 60 && temperaturaCorporal > 38)
-  {
-    contadorPersonasTerceraEdad++;
-  }
-
-  //e) El promedio de edad entre los hombres solteros.
-  if (sexo == "m" && estadoCivil == "soltero")
-  {
-    contadorHombresSolteros++;
-    acumuladorEdad += edad;
-
-  }
-
-
-  respuesta = confirm("Desea ingresar mas datos?")
-  } // fin del while
-
-
-  promedio = acumuladorEdad / contadorHombresSolteros;
-
-  document.write("El nombre de la persona con mas temperatura es: " + nombreTemperaturaMaxima + "<br>");
-  document.write("La cantidad de mayores de edad viudos: " + contadorViudosMayores + "<br>");
-  document.write("La cantidad de hombres solteros o viudos: " + contadorHombresSolterosViudos + "<br>");
-  document.write("Las personas mayores de 60 años que tienen mas de 38 grados: " + contadorPersonasTerceraEdad + "<br>");
-  document.write("El promedio de edad de los hombres solteros es: " + promedio + "<br>");
-
-
-
-
-
-
-
-
-
-
-
-  if(tipo == "minorista")
-  {
-    if (precio > precioMasCaro || banderaPrecioMasCaro == false)
+    while(cantidadAsesinatos < 0)
     {
-      precioMasCaro = precio;
-      nombreMasCaro = nombre;
-      banderaPrecioMasCaro = true;
+      cantidadAsesinatos = prompt("Reingrese la cantidad de asesinatos:");
+      cantidadAsesinatos = parseInt(cantidadAsesinatos);
     }
-  }
 
-  if(cantidadUnidades < unidadMinima || banderaUnidadMinima == false)
+    cantidadMuertes = prompt("Ingrese la cantidad de muertes:");
+    cantidadMuertes = parseInt(cantidadMuertes);
+
+    while(cantidadMuertes < 0)
+    {
+      cantidadMuertes = prompt("Reingrese la cantidad de muertes:");
+      cantidadMuertes = parseInt(cantidadMuertes);
+    }
+
+    cantidadAsistencias = prompt("Ingrese la cantidad de asistencias:");
+    cantidadAsistencias = parseInt(cantidadAsistencias);
+
+    while(cantidadAsistencias < 0)
+    {
+      cantidadAsistencias = prompt("Reingrese la cantidad de asistencias:");
+      cantidadAsistencias = parseInt(cantidadAsistencias);
+    }
+
+    //a) El modo de juego más jugado.
+
+    switch(modoDeJuego)
+    {
+      case "normal":
+      contadorNormal++;
+      break;
+
+      case "clasificatoria":
+      contadorClasificatoria++;
+      break;
+
+      default:
+      contadorAram++;
+      ////b) De las partidas ARAM, el personaje con menos asistencias.
+      if(cantidadAsistencias < asistenciaMinima || banderaMenosAsistencias == false)
+      {
+        nombreMenosAsistencias = nombreDelPersonaje;
+        asistenciaMinima = cantidadAsistencias;
+        banderaMenosAsistencias = true;
+      }
+      break;
+    }
+
+    //c) El promedio de muertes.
+    acumuladorMuertes += cantidadMuertes;
+
+
+    control++;
+  } //fin while general
+
+  if(contadorNormal > contadorClasificatoria && contadorNormal > contadorAram)
   {
-    unidadMinima = cantidadUnidades
-    nombreMenosUnidades = nombreProdcuto;
-    banderaUnidadMinima = true;
+    modoMasJugado = "Normal";
   }
+  else
+    {
+      if (contadorClasificatoria > contadorAram)
+      {
+         modoMasJugado = "Clasificatoria";
+      }
+      else
+      {
+         modoMasJugado = "ARAM";
+      }
+    }
+
+
+  promedioMuertes = acumuladorMuertes / control;
+
+  //d) El porcentaje sobre los modos de juego. (ejemplo: 20% normal, 50% clasificatoria y 30 % ARAM.)
+
+  porcentajeNormal = (contadorNormal * 100) / control
+  porcentajeClasificatoria = (contadorClasificatoria * 100) / control;
+  porcentajeAram = (contadorAram *100) / control;
+
+  document.write("El modo de juego mas jugado fue: " + modoMasJugado + "<br>");
+  document.write("De las partidas de ARAM, el personaje con menos asistencias: " + nombreMenosAsistencias + "<br>");
+  document.write("El promedio de muertes: " + promedioMuertes + "<br>");
+  document.write("El porcentaje de juego normal: " + porcentajeNormal + "<br>");
+  document.write("El porcentaje de juego clasificatoria: " + porcentajeClasificatoria + "<br>");
+  document.write("El porcentaje de juego ARAM: " + porcentajeAram + "<br>");
+
+
+
+
 
 }
 
@@ -149,6 +171,226 @@ function mostrar()
 
 
 
+
+/*function mostrar()
+{
+    var modoDeJuego;
+    var nombreDelPersonaje;
+    var cantidadDeAsesinatos;
+    var cantidadDeMuertes;
+    var cantidadDeAsistencias;
+    var control;
+    var juegoNormal;
+    var juegoClasificatoria;
+    var juegoAram;
+    var acumuladorMuertes;
+    var banderaPersonajeMinimo;
+    var nombreMenosAsistencias;
+    var personajeMenosAsistencias;
+    var porcentaje;
+    var contadorNormal;
+    var contadorAram;
+    var contadorClasificatoria;
+    var acumuladorNormal;
+    var acumuladorAram;
+    var acumuladorClasificatoria;
+
+
+    acumuladorMuertes = 0;
+    porcentaje = 0;
+    contadorNormal = 0;
+    contadorClasificatoria = 0;
+    contadorAram = 0;
+    acumuladorClasificatoria = 0;
+    acumuladorAram = 0;
+    acumuladorNormal = 0;
+    banderaPersonajeMinimo = false;
+    control = 0;
+
+
+    while(control <2)
+    {
+      modoDeJuego = prompt("Ingrese el modo de juego: normal, clasificatoria, aram").toLowerCase();
+
+      while(modoDeJuego != "normal" && modoDeJuego != "clasificatoria" && modoDeJuego != "aram")
+      {
+        modoDeJuego = prompt("Error, ingrese el modo de juego: normal, clasificatoria, aram").toLowerCase();
+      }
+
+      nombreDelPersonaje = prompt("Ingrese el nombre del personaje: Vayne, Annie, Renatta").toLowerCase();
+
+      while(nombreDelPersonaje != "vayne" && nombreDelPersonaje != "annie" && nombreDelPersonaje != "rennata")
+      {
+        nombreDelPersonaje = prompt("Ingrese el nombre del personaje: Vayne, Annie, Renatta").toLowerCase();
+      }
+
+      cantidadDeAsesinatos = prompt("Ingrese la cantidad de asesinatos: ");
+      cantidadDeAsesinatos = parseInt(cantidadDeAsesinatos);
+
+      while(isNaN(cantidadDeAsesinatos) || cantidadDeAsesinatos <1)
+      {
+        cantidadDeAsesinatos = prompt("Ingrese la cantidad de asesinatos: ");
+        cantidadDeAsesinatos = parseInt(cantidadDeAsesinatos);
+      }
+
+      cantidadDeMuertes = prompt("Ingrese la cantidad de muertes: ");
+      cantidadDeMuertes = parseInt(cantidadDeMuertes);
+
+      while(isNaN(cantidadDeMuertes) || cantidadDeMuertes <1)
+      {
+        cantidadDeMuertes = prompt("Ingrese la cantidad de muertes: ");
+        cantidadDeMuertes = parseInt(cantidadDeMuertes);
+      }
+
+      cantidadDeAsistencias = prompt("Ingrese la cantidad de asistencias: ");
+      cantidadDeAsistencias = parseInt(cantidadDeAsistencias);
+
+      while(isNaN(cantidadDeAsistencias) || cantidadDeAsistencias <1)
+      {
+        cantidadDeAsistencias = prompt("Ingrese la cantidad de asistencias: ");
+        cantidadDeAsistencias = parseInt(cantidadDeAsistencias);
+      }
+
+      //a) El modo de juego más jugado.
+      if (juegoNormal > juegoClasificatoria && juegoNormal > juegoAram)
+      {
+        document.write("El modo de juego mas jugado es el normal. <br>");
+      }
+        else
+        {
+          if (juegoClasificatoria > juegoAram)
+          {
+            document.write("El modo de juego mas jugado es el clasificatoria. <br>");
+          
+        }
+          else
+          {
+            document.write("El modo de juego mas jugado es el ARAM. <br>");
+          }
+          }
+
+      //b) De las partidas ARAM, el personaje con menos asistencias.
+      if (modoDeJuego == "aram" || banderaPersonajeMinimo == false)
+      {
+        nombreMenosAsistencias = nombreDelPersonaje;
+        personajeMenosAsistencias = cantidadDeAsistencias;
+        banderaPersonajeMinimo = true;
+      }
+
+      //c) El promedio de muertes.
+      acumuladorMuertes += cantidadDeMuertes;
+
+      //d) El porcentaje sobre los modos de juego. (ejemplo: 20% normal, 50% clasificatoria y 30 % ARAM.)
+   
+
+      switch(modoDeJuego)
+      {
+        case "normal":
+        contadorNormal++;
+        porcentaje = (contadorNormal * 100) / control;
+        break;
+
+        document.write("El porcentaje del juego normal es: " + porcentaje + "<br>"); //deberian estar abajo de todo
+
+        case "clasificatoria":
+        contadorClasificatoria++;
+        porcentaje = (contadorClasificatoria * 100) / control; // la cuenta esta bien
+        break;
+
+        document.write("El porcentaje del juego clasificatoria es: " + porcentaje + "<br>");
+
+        default:
+        contadorAram++;
+        porcentaje = (contadorAram * 100) / control;
+        break;
+
+        document.write("El porcentaje del juego ARAM es: " + porcentaje + "<br>");
+      }
+
+
+
+
+
+    control++;
+    }// fin del while
+
+    promedio = acumuladorMuertes / control;
+
+
+
+  document.write("De las partidas del ARAM, el personaje con menos asistencias es: " + nombreMenosAsistencias + "<br>");
+  document.write("El promedio de muertes es de: " + promedio + " <br>");
+  
+
+}*/
+
+
+/*{
+    var nombrePersonaje;
+    var modoJuego;
+    var cantidadAsesinatos;
+    var cantidadMuertes;
+    var cantidadAsistencias;
+    var contadorPartidas;
+    var contadorNormal = 0;
+    var contadorClasificatoria = 0;
+    var contadorARAM = 0;
+    var asistenciaMinima;
+    var nombrePersonajeMinimo;
+    var banderaMinima = true;
+    var acumuladorMuertes = 0;
+    var promedioMuertes;
+    var porcentajeNormal;
+    var porcentajeClasisficatoria;
+    var pocentajeARAM;
+
+    contadorPartidas = 0;
+
+    while(contadorPartidas < 15)
+    {
+        switch(modoJuego) // ej A
+        {
+            case "Normal":
+                contadorNormal++;
+            break;
+            case "ARAM":
+                contadorARAM++;
+                //     if(cantidadAsistencias < asistenciaMinima || contadorARAM == 1) Alternativa
+                   // {
+                     //   asistenciaMinima = cantidadAsistencias;
+                     //   nombrePersonajeMinimo = nombrePersonaje;
+                   // }
+                if(cantidadAsistencias < asistenciaMinima || banderaMinima == true)// ej B
+                {
+                    asistenciaMinima = cantidadAsistencias;
+                    nombrePersonajeMinimo = nombrePersonaje;
+                    banderaMinima = false;
+                }
+            break;
+            default:
+                contadorClasificatoria++;
+        }
+
+        acumuladorMuertes += cantidadMuertes;
+
+
+
+        contadorPartidas++;
+    }
+
+    // ej A
+    // falta la comparación para saber cual se jugó más
+
+
+    // ej C
+    promedioMuertes = acumuladorMuertes / 15;
+
+    // ej D
+    porcentajeNormal = contadorNormal * 100 / 15;
+    porcentajeClasisficatoria = contadorClasificatoria * 100 / 15;
+    pocentajeARAM = contadorARAM * 100 / 15;
+}
+*/
 
 
 
