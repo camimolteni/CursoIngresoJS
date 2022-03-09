@@ -84,6 +84,103 @@ function mostrar()
 }
 
 
+/*
+3.Se debe llevar a cabo el registro de los ingresos a la guardia, 
+los mismos se dividen en tres grupos: clínica,  pediátrica y traumatológica . 
+Se pide el ingreso del nombre del paciente, la edad y el tipo de atención (anteriormente mencionado). 
+Al momento de la recepción se solicita el tipo de prestación (prepaga - obra social - sin prestación). 
+El valor de la consulta es de $2500, 
+en caso de contar con prepaga la cobertura es del 100%, 
+para obra social es del 50%.
+
+Se precisa saber:
+
+A.Ingresos por obra social y sin prestación.
+B.Nombre y tipo de prestación del paciente de más edad en traumatología.
+C.Qué tipo de prestación es la más utilizada.
+D.Cuántos pacientes menores de edad solicitaron atención traumatológica.
+E.El total en pesos de todas las prestaciones.
+F.El reintegro que deberán hacer las prepagas.
+  */
+
+function mostrar() {
+
+	var nombre;
+	var edad;
+	var tipoAtencion;
+	var tipoPrestacion;
+	var precio = 2500;
+	var respuesta=true;
+	var contadorObraSocial=0;
+	var contadorSinPrestacion=0;
+	var contadorPrepaga=0;
+	var contadorConsultas=0;
+	var acumuladorPrecios;
+	var mayorEdadTraumato;
+	var prestacionTraumato;
+	var nombreTraumato;
+	var banderaTraumato=false;
+	var contadorMenores=0;
+	var acumuladorPrepagas;
+
+	while(respuesta==true){
+
+		nombre= prompt("Ingrese nombre");
+
+		edad= prompt("Ingrese edad");
+
+		tipoAtencion= prompt("Ingrese tipoAtencion");
+
+		tipoPrestacion= prompt("Ingrese tipoPrestacion");
+
+
+		switch(tipoPrestacion){
+			case "obra social":
+				contadorObraSocial++;
+				acumuladorPrecios+= (precio*0.5);
+			break;
+			case "sin prestacion":
+				contadorSinPrestacion++;
+				acumuladorPrecios+=precio;
+			break;
+			default:
+				contadorPrepaga++;
+				acumuladorPrepagas+=precio;
+		}
+
+		if (tipoAtencion == "traumatologia"){
+			if (edadPaciente > mayorEdadTraumato || banderaTraumato == false){
+				mayorEdadTraumato=edadPaciente;
+				nombreTraumato=nombrePaciente;
+				prestacionTraumato=tipoPrestacion;
+				banderaTraumato=true;
+			  }
+			if (edad < 18){
+				contadorMenores++;
+			}
+			
+		}
+		
+		contadorConsultas++;
+
+		respuesta=confirm("Desea ingresar más pacientes?");
+
+	}
+
+	if (contadorObraSocial > contadorPrepaga && contadorObraSocial > contadorSinPrestacion){
+		masUsado = "obra social";
+	}else {
+		if(contadorPrepaga > contadorSinPrestacion){
+			masUsado = "prepaga";
+		}else{
+			masUsado = "sin prestación";
+		}
+	}
+
+}
+
+
+
 
 
 
