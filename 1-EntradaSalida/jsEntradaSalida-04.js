@@ -15,69 +15,65 @@ function mostrar()
     var edad;
     var cantidadDeAsientos;
     var cantidadKms;
-    var precioPorAsiento=1500;
+    var precioPorAsiento = 1500;
 
-    var acumuladorRecaudacionTotalVuelo=0;
-    var acumuladorCantidadTotalAsientosOcup=0;
+    var acumuladorRecaudacionTotalVuelo = 0;
+    var acumuladorCantidadTotalAsientosOcu = 0;
 
-    var contadorEdad=0;
-    var acumuladorEdad=0;
+    var contadorEdad = 0;
+    var acumuladorEdad = 0;
    
 
     var edadPromedioPasajero;
-    var cantidadPasajerosEdadDestino=0;
+    var cantidadPasajerosEdadDestino = 0;
 
-    var respuesta=true;
+    var respuesta = true;
 
     while(respuesta==true)
     {
-        nombre=prompt("Ingrese su edad: ");
+        nombre = prompt("Ingrese su edad: ");
         
-        edad=prompt("Ingrese su edad: ");
-        edad=parseInt(edad);
+        edad = prompt("Ingrese su edad: ");
+        edad = parseInt(edad);
 
-        cantidadDeAsientos=prompt("Ingrese la cantidad de asientos: ");
-        cantidadDeAsientos=parseInt(cantidadDeAsientos);
+        cantidadDeAsientos = prompt("Ingrese la cantidad de asientos: ");
+        cantidadDeAsientos = parseInt(cantidadDeAsientos);
 
-        cantidadKms=prompt("ingrese cantidad de kms: ");
-        cantidadKms=parseInt(cantidadKms);
+        cantidadKms = prompt("ingrese cantidad de kms: ");
+        cantidadKms = parseInt(cantidadKms);
 
 
-        acumuladorCantidadTotalAsientosOcup+=cantidadDeAsientos;
+        acumuladorCantidadTotalAsientosOcup += cantidadDeAsientos;
         //acumuladorRecaudacionTotalVuelo+=precioPorAsiento*cantidadDeAsientos; 
         
-        acumuladorEdad+=edad;
+        acumuladorEdad += edad;
         
         if(edad>18 && edad<45)
         {
-            if(cantidadKms==5000 || cantidadKms==13000)
+            if(cantidadKms == 5000 || cantidadKms == 13000)
             {
                 cantidadPasajerosEdadDestino++;
             }
         }
         
 
-
-
-
-
         contadorEdad++;
 
 
         respuesta=confirm("Desea seguir ingresando datos?");
     }
-    edadPromedioPasajero=acumuladorEdad/contadorEdad;
+    edadPromedioPasajero = acumuladorEdad / contadorEdad;
 
-    acumuladorRecaudacionTotalVuelo=acumuladorCantidadTotalAsientosOcup*precioPorAsiento; 
+    acumuladorRecaudacionTotalVuelo = acumuladorCantidadTotalAsientosOcup * precioPorAsiento; 
 
     //a 
-    //document.write(""++"<br>");
+    document.write("La recaudación total del vuelo: " + acumuladorRecaudacionTotalVuelo + "<br>");
     //b
-    //document.write(""++"<br>");
+    document.write("La cantidad total de asientos ocupados: " + acumuladorCantidadTotalAsientosOcup + "<br>");
     //c
-    //document.write(""++"<br>");
+    document.write("La edad promedio por pasajero " + edadPromedioPasajero + "<br>");
     //d
-    //document.write(""++"<br>");
+    document.write("Cantidad de pasajeros entre 18 y 45 años, que realizarán un viaje a un destino cuya distancia es 5000 km ó 13000 km: " + cantidadPasajerosEdadDestino + "<br>");
     
     
 
@@ -103,59 +99,78 @@ E.El total en pesos de todas las prestaciones.
 F.El reintegro que deberán hacer las prepagas.
   */
 
-function mostrar() {
+function mostrar() 
+{
 
 	var nombre;
 	var edad;
 	var tipoAtencion;
 	var tipoPrestacion;
 	var precio = 2500;
-	var respuesta=true;
-	var contadorObraSocial=0;
-	var contadorSinPrestacion=0;
-	var contadorPrepaga=0;
-	var contadorConsultas=0;
+	var respuesta = true;
+	var contadorObraSocial = 0;
+	var contadorSinPrestacion = 0;
+	var contadorPrepaga = 0;
+	var contadorConsultas = 0;
 	var acumuladorPrecios;
 	var mayorEdadTraumato;
 	var prestacionTraumato;
 	var nombreTraumato;
-	var banderaTraumato=false;
-	var contadorMenores=0;
+	var banderaTraumato = false;
+	var contadorMenores = 0;
 	var acumuladorPrepagas;
 
-	while(respuesta==true){
+	while(respuesta==true)
+	{
 
-		nombre= prompt("Ingrese nombre");
+		nombre = prompt("Ingrese nombre");
 
-		edad= prompt("Ingrese edad");
+		edad = prompt("Ingrese edad");
 
-		tipoAtencion= prompt("Ingrese tipoAtencion");
+		tipoAtencion = prompt("Ingrese tipo de atencion: clínica, pediátrica o traumatológica").toLowerCase();
 
-		tipoPrestacion= prompt("Ingrese tipoPrestacion");
+		while(tipoAtencion != "clinica" && tipoAtencion != "pediatrica" && tipoAtencion != "traumatologica")
+		{
+			tipoAtencion = prompt("Reingrese tipo de atencion: clínica, pediátrica o traumatológica").toLowerCase();
+		}
+
+		tipoPrestacion = prompt("Ingrese tipo de prestacion: prepaga, obra social, sin prestación").toLowerCase();
+
+		while(tipoPrestacion != "prepaga" && tipoPrestacion != "obra social" && tipoPrestacion != "sin prestacion")
+		{
+			tipoPrestacion = prompt("Reingrese tipo de prestacion: prepaga, obra social, sin prestación").toLowerCase();
+		}
 
 
-		switch(tipoPrestacion){
+		switch(tipoPrestacion) //A.Ingresos por obra social y sin prestación.
+		{
 			case "obra social":
 				contadorObraSocial++;
-				acumuladorPrecios+= (precio*0.5);
+				acumuladorPrecios += (precio * 0.5);
 			break;
 			case "sin prestacion":
 				contadorSinPrestacion++;
-				acumuladorPrecios+=precio;
+				acumuladorPrecios += precio;
 			break;
 			default:
 				contadorPrepaga++;
-				acumuladorPrepagas+=precio;
+				acumuladorPrepagas += precio;
+			break;
 		}
 
-		if (tipoAtencion == "traumatologia"){
-			if (edadPaciente > mayorEdadTraumato || banderaTraumato == false){
-				mayorEdadTraumato=edadPaciente;
-				nombreTraumato=nombrePaciente;
-				prestacionTraumato=tipoPrestacion;
-				banderaTraumato=true;
+		//B.Nombre y tipo de prestación del paciente de más edad en traumatología.
+		if (tipoAtencion == "traumatologia")
+		{
+			if (edadPaciente > mayorEdadTraumato || banderaTraumato == false)
+			{
+				mayorEdadTraumato = edadPaciente;
+				nombreTraumato = nombrePaciente;
+				prestacionTraumato = tipoPrestacion;
+				banderaTraumato = true;
 			  }
-			if (edad < 18){
+		//D.Cuántos pacientes menores de edad solicitaron atención traumatológica.
+			if (edad < 18)
+			{
 				contadorMenores++;
 			}
 			
@@ -163,16 +178,22 @@ function mostrar() {
 		
 		contadorConsultas++;
 
-		respuesta=confirm("Desea ingresar más pacientes?");
+		respuesta = confirm("Desea ingresar más pacientes?");
 
-	}
+	} //fin while general
 
-	if (contadorObraSocial > contadorPrepaga && contadorObraSocial > contadorSinPrestacion){
+	//C.Qué tipo de prestación es la más utilizada.
+	if (contadorObraSocial > contadorPrepaga && contadorObraSocial > contadorSinPrestacion)
+	{
 		masUsado = "obra social";
-	}else {
-		if(contadorPrepaga > contadorSinPrestacion){
+	}else
+	{
+		if(contadorPrepaga > contadorSinPrestacion)
+		{
 			masUsado = "prepaga";
-		}else{
+		}
+		else
+		{
 			masUsado = "sin prestación";
 		}
 	}

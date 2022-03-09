@@ -46,7 +46,7 @@ function mostrar ()
 
 
 		//el candidato con más votos
-		if(nombre > nombreMasVotos || banderaMasVotos == false)
+		if(cantidadVotos > cantidadMaximaVotos || banderaMasVotos == false)
 		{
 			nombreMasVotos = nombre;
 			cantidadMaximaVotos = cantidadVotos;
@@ -54,7 +54,7 @@ function mostrar ()
 		}
 
 		//el candidato con menos votos
-		if(nombre < nombreMenosVotos || banderaMenosVotos == false)
+		if(cantidadVotos < cantidadMinimaVotos || banderaMenosVotos == false)
 		{
 			nombreMenosVotos = nombre;
 			cantidadMinimaVotos = cantidadVotos;
@@ -110,56 +110,85 @@ Ingreso NETO del club después de pagar un impuesto del 18% sobre el BRUTO.
 Del total de ingresos NETO se sabe que un 35% se destinan a la compra
  de dólares al costo de $220c/u, informar ese monto.
 Determinar si se recaudó más por INDUMENTARIA o ACCESORIOS. 
-Informando la diferencia del mayor. (Ej: Se recaudó $x más de ACCESORIOS)*/
+Informando la diferencia del mayor. (Ej: Se recaudó $x más de ACCESORIOS)
 
-/*function mostrar()
+function mostrar()
 {
-	var respuesta;
-	var tipoDeIngreso;
-	var valorDeIngreso;
+	var tipoIngreso;
+	var valorIngreso;
+	var respuesta; 
 	var ingresoBrutoClub;
-	var acumuladorValorIngreso;
 	var ingresoNetoClub;
-	var impuesto;
-	var porcentaje;
-	var dolares;
+	var compraDolares;
+	var destinoDolares;
+	var acumuladorIndumentaria;
+	var acumuladorAccesorios;
+	var diferencia;
 
 	respuesta = true;
-	acumuladorValorIngreso = 0;
-	impuesto = 18;
-	porcentaje = 35;
-	dolares = 220;
+	ingresoBrutoClub = 0;
+	acumuladorAccesorios =0;
+	acumuladorIndumentaria =0;
+	diferencia=0;
 
 	while(respuesta==true)
 	{
-		tipoDeIngreso = prompt("Ingrese el tipo de ingreso: Entradas, Indumentaria o Accesorios").toLowerCase();
+		tipoIngreso=prompt("Ingrese tipo de ingreso").toLowerCase();
+			while(tipoIngreso!="indumentaria" && tipoIngreso!="entradas" && tipoIngreso!="accesorios")
+			{
+				tipoIngreso=prompt("Ingrese un tipo de ingreso valido");
+			}
 
-		while(tipoDeIngreso != "entradas" && tipoDeIngreso != "indumentaria" && tipoDeIngreso != "accesorios")
+		valorIngreso=prompt("Ingrese el valor de los ingresos");
+		valorIngreso=parseInt(valorIngreso);
+
+		respuesta=confirm("¿Desea seguir agregando ingresos?");
+
+		ingresoBrutoClub+=valorIngreso;
+
+		switch(tipoIngreso)
 		{
-			tipoDeIngreso = prompt("Reingrese el tipo de ingreso: Entradas, Indumentaria o Accesorios").toLowerCase();
+			case "indumentaria":
+				acumuladorIndumentaria+=valorIngreso;
+				acumuladorIndumentaria=parseInt(acumuladorIndumentaria);
+				break;
+
+			case "accesorios":
+				acumuladorAccesorios+=valorIngreso;
+				acumuladorAccesorios=parseInt(acumuladorAccesorios);
+				break;
 		}
 
-		valorDeIngreso = prompt("Ingrese el valor de ingreso:")
-
-		//Ingreso BRUTO del club.
-		acumuladorValorIngreso += valorDeIngreso
-
-
-		respuesta = confirm("Desea ingresar mas datos?");
-	}//fin del while
-
-		//Ingreso NETO del club después de pagar un impuesto del 18% sobre el BRUTO.
-		ingresoNetoClub = (acumuladorValorIngreso * impuesto) / 100;
-
-		//Del total de ingresos NETO se sabe que un 35% se destinan a la compra de dólares al costo de $220c/u,
-		//informar ese monto.
-		ingresoNetoClub -= porcentaje 
-
-}
+		if(acumuladorIndumentaria>acumuladorAccesorios)
+		{
+			diferencia=acumuladorIndumentaria-acumuladorAccesorios
+			document.write("<br>Se recaudo "+ diferencia + " mas por indumentaria");
+		}
+		else
+			if(acumuladorAccesorios>acumuladorIndumentaria)
+		{	
+			diferencia=acumuladorAccesorios-acumuladorIndumentaria
+			document.write("<br>Se recaudo "+ diferencia +" mas por accesorios");
+		}
+		
 
 
 
-3.  Debemos realizar un programa que lleve el registro de los partidos jugados por nuestro equipo.
+	}
+
+	ingresoNetoClub=ingresoBrutoClub-(ingresoBrutoClub*0.18);
+	destinoDolares=ingresoNetoClub*0.35
+	compraDolares= destinoDolares/220
+	
+
+	document.write("<br>El ingreso total bruto del club es de $ " + ingresoBrutoClub);
+	document.write("<br>El ingreso neto del club pagando el impuesto de 18% es de $ " + ingresoNetoClub);
+	document.write("<br>La cantidad de dolares comprados es de U$D " + compraDolares);
+	*/
+
+
+
+/*3.  Debemos realizar un programa que lleve el registro de los partidos jugados por nuestro equipo.
 	 No se sabe cuántos.
     Se deberá cargar en cada entrada el nombre del equipo contrario, si jugamos de local o visitante(validar) ,
 	 los goles hechos por nuestro equipo y los goles hechos por el equipo contrario (validar,
