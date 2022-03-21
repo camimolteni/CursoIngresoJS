@@ -10,7 +10,6 @@ e.	Sobre el maximo encontrado aplicar un descuento del 10% a dicho importe.
 
 
 
-
 function mostrar()
 
 {
@@ -85,7 +84,6 @@ function mostrar()
 	document.write("El promedio es: " + promedio + "<br>");
 	document.write("La cantidad de productos de china es: " + contadorChina + "<br>");
 	document.write("El total con descuento es: " + descuentoImpMax + "<br>");
-
 
 
 

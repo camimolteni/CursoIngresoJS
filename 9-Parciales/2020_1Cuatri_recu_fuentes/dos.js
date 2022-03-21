@@ -281,4 +281,4 @@ function mostrar()
    //e
    document.write(" El promedio de edad de los hombres que se aplicaron la vacuna SputnikV y no presentaron fiebre. (37° o menos) es: "+promedioEdadHombres+"<br>");
 }
-*/
+*/ 

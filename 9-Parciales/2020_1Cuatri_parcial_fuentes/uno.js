@@ -10,7 +10,9 @@ a-Porcentaje de positivos
 b-Porcentaje de negativos
 c-Cuál es la cepa menos encontrada
 d-Edad del menor argentino contagiado
-e-Cantidad de personas extranjeras contagiadas con la delta*/
+e-Cantidad de personas extranjeras contagiadas con la delta
+
+NO HACER*/
 function mostrar()
 {
   var control;
